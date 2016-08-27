@@ -1,4 +1,5 @@
 # bcrypt-promise
+<<<<<<< HEAD
 
 promisify node bcrypt library
 
@@ -33,3 +34,6 @@ promisify node bcrypt library
         yield next;
     });
 ```
+=======
+promisify bcrypt library
+>>>>>>> 22b91a1f49c61baf0cd8545e2260848671016a10
