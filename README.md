@@ -1,39 +1,60 @@
 # bcrypt-promise
-<<<<<<< HEAD
 
-promisify node bcrypt library
+Promisify [node.bcrypt.js](https://github.com/ncb000gt/node.bcrypt.js) library
 
-### usage:
+## Usage
 
 ```bash
-    npm install bcrypt-promisfy
+npm install bcrypt-promisfy
 ```
 
-### example with koa
+## Example with `.next()`
 ```javascript
-    // require library and initiate koa server
-    let bcrypt = require('bcrypt-promise');
-    let koa = require('koa');
-    let app = koa();
-    app.listen(3000);
-
-    // use bcrypt
-    app.use(function*(next){
-        // get password from somewhere
-        let password = this.request.body.password;
-        // get hash from somewhere
-        let hash = yield db.findHash(_id);
-
-        // **use this library**
-        let same = yield bcrypt.compare(password, hash);
+let bcrypt = require('bcypt-promise');
+bcrypt.compare(password, hash)
+    .then(function(err, same){
         if(same) {
-            this.body = 'Yeah';
-        } eles {
-            this.body = 'Whops';
+            // do something
+        } else {
+            // do otherthing
         }
-        yield next;
     });
 ```
-=======
-promisify bcrypt library
->>>>>>> 22b91a1f49c61baf0cd8545e2260848671016a10
+
+## Example with `koa`
+Just use keyword `yield` before bcrypt-promise function then get the result.
+```javascript
+// require library and initiate koa server
+let bcrypt = require('bcrypt-promise');
+let koa = require('koa');
+let app = koa();
+app.listen(3000);
+
+// USE LIBRARY
+app.use(function*(next){
+    // get password from somewhere
+    let password = this.request.body.password;
+    // get hash from somewhere
+    let hash = yield db.findHash(_id);
+
+    /*
+    * use this library
+    */
+    let same = yield bcrypt.compare(password, hash);
+    if(same) {
+        this.body = 'Yeah!';
+    } else {
+        this.body = 'Whops!';
+    }
+    yield next;
+});
+```
+
+Use `try-catch` to handle with errors
+```javascript
+try {
+    let same = yield bcrypt.compare(password, hash);
+} catch(error) {
+    console.log(error);
+}
+```

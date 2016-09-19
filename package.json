@@ -1,7 +1,8 @@
 {
   "name": "bcrypt-promise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "promisify bcrypt",
+  "repostory":"https://github.com/sepmein/bcrypt-promise",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,8 +14,8 @@
   ],
   "author": "sepmein@hotmail.com",
   "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^0.8.7"
+  "peerDependencies": {
+    "bcrypt": ">0.8.x"
   },
   "devDependencies": {
     "eslint": "^3.3.1",
