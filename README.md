@@ -5,7 +5,7 @@ Promisify [node.bcrypt.js](https://github.com/ncb000gt/node.bcrypt.js) library
 ## Usage
 
 ```bash
-npm install bcrypt-promisfy
+npm install bcrypt-promise
 ```
 
 ## Example with `.next()`
