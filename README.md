@@ -10,7 +10,7 @@ npm install bcrypt-promise
 
 ## Example with `.next()`
 ```javascript
-let bcrypt = require('bcypt-promise');
+let bcrypt = require('bcrypt-promise');
 bcrypt.compare(password, hash)
     .then(function(err, same){
         if(same) {
